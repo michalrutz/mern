@@ -6,9 +6,10 @@ function App() {
   useEffect( () => {
     (async () => {
             try {
-              const response = await fetch( 'http://localhost:3000/' );
+              const response = await fetch( 'http://localhost:3000/characters' );
               console.log(response)
               const jsonData = await response.json();
+              console.log(jsonData)
               setData(jsonData);
             } catch (error) {
               console.log('Error:', error);
@@ -19,7 +20,13 @@ function App() {
   return (
     <>
       <div>
-        {  data ? data.message : "" }
+        { data ? data.map( character => (
+          <div key={character._id }>
+            <p>{character.name}</p>
+          </div>
+          ) )
+          : ""
+        }
       </div>    
     </>
   )
