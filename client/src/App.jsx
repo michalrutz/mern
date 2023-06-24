@@ -6,7 +6,7 @@ function App() {
   useEffect( () => {
     (async () => {
             try {
-              const response = await fetch( 'http://localhost:3000/characters' );
+              const response = await fetch( import.meta.env.VITE_API_BASE_URL+'characters' );
               console.log(response)
               const jsonData = await response.json();
               console.log(jsonData)
