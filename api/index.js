@@ -35,8 +35,7 @@ app.get("/api/characters", async (req, res) => {
           const characters = await PC.find();
           res.json(characters);
         } catch (error) {
-          console.error("Error fetching characters:", error);
-          res.status(500).json({ error: "Error fetching characters" });
+          res.status(500).json({ error: error });
         }
       });
 
