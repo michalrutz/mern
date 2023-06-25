@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 async function getCharacter(setter, id) {
-        fetch(import.meta.env.VITE_API_BASE_URL+"character/"+id, {
+        fetch(import.meta.env.VITE_API_BASE_URL+"api/character/"+id, {
                 method: "GET",
                 headers: {
                   "Content-Type": "application/json",
@@ -14,13 +14,13 @@ async function getCharacter(setter, id) {
                 setter(data[0]);
         })
         .catch((err) => {
-                console.error(err);
+                console.error(err);     
         }); 
 }
 
 async function deleteCharacter(id) {
         console.log("delete: "+id)
-        fetch(import.meta.env.VITE_API_BASE_URL+"character/"+id, {
+        fetch(import.meta.env.VITE_API_BASE_URL+"api/character/"+id, {
                 method: 'DELETE'
               })
               .then((response) => {
