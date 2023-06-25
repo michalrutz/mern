@@ -30,7 +30,7 @@ app.get( "/", (req, res) => {
 })
 
 
-app.get("/api/characters", async (req, res) => {
+app.get("/characters", async (req, res) => {
         try {
           const characters = await PC.find();
           res.json(characters);
@@ -40,7 +40,7 @@ app.get("/api/characters", async (req, res) => {
         }
       });
 
-app.get("/api/character/:id", async (req, res) => {
+app.get("/character/:id", async (req, res) => {
         const characterId = req.params.id;
         try {
           const character = await PC.find({_id:characterId});

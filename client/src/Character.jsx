@@ -20,7 +20,7 @@ async function getCharacter(setter, id) {
 
 async function deleteCharacter(id) {
         console.log("delete: "+id)
-        fetch('http://localhost:3000/character/'+id, {
+        fetch(import.meta.env.VITE_API_BASE_URL+"character/"+id, {
                 method: 'DELETE'
               })
               .then((response) => {
