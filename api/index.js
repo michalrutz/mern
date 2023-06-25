@@ -40,6 +40,17 @@ app.get("/characters", async (req, res) => {
         }
       });
 
+app.get("/character/:id", async (req, res) => {
+        const characterId = req.params.id;
+        try {
+          const character = await PC.find({_id:characterId});
+          res.json(character);
+        } catch (error) {
+          console.error("Error fetching the character:", error);
+          res.status(500).json({ error: "Error fetching the character" });
+        }
+      })
+
 app.listen(3000, () => {
         console.log("Server is running on port 3000");
 });

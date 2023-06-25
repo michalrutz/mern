@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 
 function App() {
   const [ data, setData ] = useState()
@@ -22,7 +23,7 @@ function App() {
       <div>
         { data ? data.map( character => (
           <div key={character._id }>
-            <p>{character.name}</p>
+            <Link to={"character/"+character._id} >{character.name}</Link>
           </div>
           ) )
           : ""
